@@ -49,7 +49,7 @@
     <?php
         echo '<form action="../partials/checkAnswers.php?quesId='.$quesId.'&i='.$i.'" method="post">';
 
-        echo '<p>'.$quesId.': '.$question.'</p>';
+        echo '<p>'.$question.'</p>';
         echo '<div>
                 <input name="ques_opt" type="radio" value="'.$opt_a.'">'.$opt_a.'
                 <input name="ques_opt" type="radio" value="'.$opt_b.'">'.$opt_b.'
