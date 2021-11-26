@@ -33,7 +33,7 @@
         $opt_d = $row['opt_d'];
     }
     else{
-        header('location: ./result.php?tot='.$numOfQues.'&corr'.$corrAns);
+        header('location: ./result.php?tot='.$numOfQues.'&corr='.$corrAns);
     }
     
 ?>
@@ -53,7 +53,7 @@
         echo '<div>
                 <input name="ques_opt" type="radio" value="'.$opt_a.'">'.$opt_a.'
                 <input name="ques_opt" type="radio" value="'.$opt_b.'">'.$opt_b.'
-                <input name="ques_opt" type="radio" value="'.$opt_c.'">'.$opt_c.'
+                <input name="ques_opt" type="radio" value="'.$opt_c.'">'.$opt_c.' 
                 <input name="ques_opt" type="radio" value="'.$opt_d.'">'.$opt_d.'
             </div>';
         echo '<div>
