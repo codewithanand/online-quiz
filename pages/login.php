@@ -11,7 +11,8 @@
     
         if($numOfRows == 1){
             $row = mysqli_fetch_assoc($result);
-            if($row['password'] == $password){
+            $hash = password_verify($password, $row['password']);
+            if($hash == $password){
                 session_start();
                 $_SESSION['userId'] = $row['user_id'];
                 $_SESSION['userEmail'] = $row['email'];
