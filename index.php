@@ -7,7 +7,7 @@
     <title>Online Quiz</title>
 </head>
 <body>
-    <form action="./pages/quests.php">
+    <form action="./pages/login.php">
         <h1>Online Quiz</h1>
         <button type="submit">CONTINUE</button>
     </form>
