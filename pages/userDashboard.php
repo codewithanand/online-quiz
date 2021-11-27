@@ -42,8 +42,18 @@
         <div>
             <h2>RECENT QUIZES</h2>
             <div>
-                <span>HTML</span>
-                <span>17 / 20</span>
+                <?php
+                    $sql = "SELECT * FROM user_recent_quizes WHERE user_id='$userId'";
+                    $result = mysqli_query($conn, $sql);
+
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo '<div>
+                                <span>'.$row['quiz_id'].'</span>
+                                <span>'.$row['quiz_score'].'/'.$row['total_ques'].'</span>
+                            </div>
+                        ';
+                    }
+                ?>
             </div>
         </div>
     </div>
