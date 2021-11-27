@@ -16,7 +16,7 @@
                 session_start();
                 $_SESSION['userId'] = $row['user_id'];
                 $_SESSION['userEmail'] = $row['email'];
-                header('location: ./quests.php');
+                header('location: ./userDashboard.php');
             }
             else{
                 echo 'Error! Incorrect password.';
