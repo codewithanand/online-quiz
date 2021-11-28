@@ -57,6 +57,6 @@
             </div>
         </div>
     </div>
-    <a href="./quests.php" class="btn">Take a Quiz</a>
+    <a href="./pages.php" class="btn">Take a Quiz</a>
 </body>
 </html>
