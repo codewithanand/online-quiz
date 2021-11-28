@@ -7,18 +7,23 @@
         $quizId = $_POST['quizName'];
 
         if($quizId == '7000'){
+            $_SESSION['quizId'] = 7000;
             header('location: ./quests.php?quizId='.$quizId);
         }
         else if($quizId == '7001'){
+            $_SESSION['quizId'] = 7001;
             header('location: ./quests.php?quizId='.$quizId);
         }
         else if($quizId == '7002'){
+            $_SESSION['quizId'] = 7002;
             header('location: ./quests.php?quizId='.$quizId);
         }
         else if($quizId == '7003'){
+            $_SESSION['quizId'] = 7003;
             header('location: ./quests.php?quizId='.$quizId);
         }
         else if($quizId == '7004'){
+            $_SESSION['quizId'] = 7004;
             header('location: ./quests.php?quizId='.$quizId);
         }
         else{

@@ -1,8 +1,10 @@
 <?php
     include '../partials/dbConnect.php';
+
     session_start();
     $userId = $_SESSION['userId'];
     $_SESSION['quizId'] = 7000;
+    
     //Fetch num of questions attempted by the user
     $sql = "SELECT * FROM user_current_ques WHERE user_id='$userId'";
     $result = mysqli_query($conn, $sql);

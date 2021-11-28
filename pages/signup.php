@@ -24,13 +24,6 @@
                 $result = mysqli_query($conn, $sql);
 
                 if($result){
-                    $sql = "SELECT * FROM user WHERE email = '$email'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    $userId = $row['user_id'];
-                    
-                    $sql = "INSERT INTO user_current_ques (user_id, ques_num, corr_ans) VALUES ('$userId', 0, 0)";
-                    mysqli_query($conn, $sql);
                     header('location: ./login.php');
                 }
                 else{
