@@ -25,7 +25,7 @@
                         <li>'.$row['user_id'].' '.$row['total_score'].'</li>
                     ';
                 }
-        ?>
+            ?>
         </ol>
     </div>
 </body>

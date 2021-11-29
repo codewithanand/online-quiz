@@ -1,5 +1,8 @@
 <?php
     include '../partials/dbConnect.php';
+
+    session_start();
+    $userId = $_SESSION['userId'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +14,9 @@
 </head>
 <body>
     <div>
-        <div><a href="./quizDetails.php" class="btn">Quizes</a></div>
+        <div><a href="./addQuiz.php" class="btn">Add Quiz</a></div>
+        <div><a href="./removeQuiz.php" class="btn">Remove Quiz</a></div>
+
         <div><a href="./users.php" class="btn">Registered Users</a></div>
         <div><a href="./scoreboard.php" class="btn">Scoreboard</a></div>
     </div>
