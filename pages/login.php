@@ -16,7 +16,13 @@
                 session_start();
                 $_SESSION['userId'] = $row['user_id'];
                 $_SESSION['userEmail'] = $row['email'];
-                header('location: ./userDashboard.php');
+
+                if($row['is_admin'] == 'no'){
+                    header('location: ./userDashboard.php');
+                }
+                else{
+                    header('location: ./admin.php');
+                }
             }
             else{
                 echo 'Error! Incorrect password.';
