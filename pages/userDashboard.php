@@ -63,6 +63,6 @@
             </div>
         </div>
     </div>
-    <a href="./pages.php" class="btn">Take a Quiz</a>
+    <a href="./quizes.php" class="btn">Take a Quiz</a>
 </body>
 </html>
