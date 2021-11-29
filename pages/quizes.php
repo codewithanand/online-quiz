@@ -4,31 +4,11 @@
     session_start();
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
         $quizId = $_POST['quizName'];
 
-        if($quizId == '7000'){
-            $_SESSION['quizId'] = 7000;
-            header('location: ./quests.php?quizId='.$quizId);
-        }
-        else if($quizId == '7001'){
-            $_SESSION['quizId'] = 7001;
-            header('location: ./quests.php?quizId='.$quizId);
-        }
-        else if($quizId == '7002'){
-            $_SESSION['quizId'] = 7002;
-            header('location: ./quests.php?quizId='.$quizId);
-        }
-        else if($quizId == '7003'){
-            $_SESSION['quizId'] = 7003;
-            header('location: ./quests.php?quizId='.$quizId);
-        }
-        else if($quizId == '7004'){
-            $_SESSION['quizId'] = 7004;
-            header('location: ./quests.php?quizId='.$quizId);
-        }
-        else{
-            header('location: ./pages.php');
-        }
+        $_SESSION['quizId'] = $quizId;
+        header('location: ./quests.php?quizId='.$quizId);
     }
 ?>
 
@@ -41,27 +21,20 @@
     <title>Pages | Online Quiz</title>
 </head>
 <body>
-    <form action="./pages.php" method="post">
-        <div>
-            <input type="radio" name="quizName" id="quizName" value="7000">
-            <label for="quizName">Ecosystem</label>
-        </div>
-        <div>
-            <input type="radio" name="quizName" id="quizName" value="7001">
-            <label for="quizName">HTML</label>
-        </div>
-        <div>
-            <input type="radio" name="quizName" id="quizName" value="7002">
-            <label for="quizName">CSS</label>
-        </div>
-        <div>
-            <input type="radio" name="quizName" id="quizName" value="7003">
-            <label for="quizName">Javascript</label>
-        </div>
-        <div>
-            <input type="radio" name="quizName" id="quizName" value="7004">
-            <label for="quizName">PHP</label>
-        </div>
+    <form action="./quizes.php" method="post">
+        <?php
+            $sql = "SELECT * FROM quiz_details";
+            $result = mysqli_query($conn, $sql);
+
+            while($row = mysqli_fetch_assoc($result)){
+                echo '
+                    <div>
+                        <input type="radio" name="quizName" id="quizName" value="'.$row['quiz_id'].'">
+                        <label for="quizName">'.$row['quiz_subject'].'</label>
+                    </div>
+                ';
+            }
+        ?>
         <div>
             <button type="submit">START</button>
         </div>
