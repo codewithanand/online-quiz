@@ -3,7 +3,7 @@
 
     session_start();
     $userId = $_SESSION['userId'];
-    $_SESSION['quizId'] = 7000;
+    $quizId = $_SESSION['quizId'];
     
     //Fetch num of questions attempted by the user
     $sql = "SELECT * FROM user_current_ques WHERE user_id='$userId'";
@@ -15,7 +15,7 @@
 
     //Collect current question from the database
     $quesIdList = array();
-    $sql = "SELECT ques_id FROM questions";
+    $sql = "SELECT ques_id FROM questions WHERE quiz_id='$quizId'";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_assoc($result)){
         array_push($quesIdList, $row['ques_id']);
@@ -26,7 +26,7 @@
 
     if($i < $numOfQues){
         //Populate question section in the UI
-        $sql = "SELECT * FROM questions WHERE ques_id='$quesId'";
+        $sql = "SELECT * FROM questions WHERE ques_id='$quesId' AND quiz_id='$quizId'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
 
@@ -55,10 +55,10 @@
 
         echo '<p>'.$question.'</p>';
         echo '<div>
-                <input name="ques_opt" type="radio" value="'.$opt_a.'">'.$opt_a.'
-                <input name="ques_opt" type="radio" value="'.$opt_b.'">'.$opt_b.'
-                <input name="ques_opt" type="radio" value="'.$opt_c.'">'.$opt_c.' 
-                <input name="ques_opt" type="radio" value="'.$opt_d.'">'.$opt_d.'
+                <div><input name="ques_opt" type="radio" value="'.$opt_a.'"><label for="ques_opt">'.$opt_a.'</label></div>
+                <div><input name="ques_opt" type="radio" value="'.$opt_b.'"><label for="ques_opt">'.$opt_b.'</label></div>
+                <div><input name="ques_opt" type="radio" value="'.$opt_c.'"><label for="ques_opt">'.$opt_c.'</label></div>
+                <div><input name="ques_opt" type="radio" value="'.$opt_d.'"><label for="ques_opt">'.$opt_d.'</label></div>
             </div>';
         echo '<div>
                 <button type="submit">NEXT</button>

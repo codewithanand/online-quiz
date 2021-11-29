@@ -11,6 +11,12 @@
     $name = $row['user_fname'].' '.$row['user_lname'];
     $email = $row['email'];
     $totScore = $row['total_score'];
+
+    $sql = "SELECT * FROM global_scoreboard WHERE user_id='$userId'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $rank = $row['user_rank'];
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +37,7 @@
         <div>
             <h1>DASHBOARD</h1>
             <div>
-                <span>11</span>
+                <span><?php echo $rank ?></span>
                 <span>RANK</span>
                 <span><?php echo $totScore ?></span>
             </div>

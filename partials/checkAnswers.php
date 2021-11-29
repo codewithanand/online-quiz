@@ -3,6 +3,7 @@
     include './dbConnect.php';
     session_start();
     $userId = $_SESSION['userId'];
+    $quizId = $_SESSION['quizId'];
 
     $quesId = $_GET['quesId'];
     $i = $_GET['i'];
@@ -13,7 +14,7 @@
     $row = mysqli_fetch_assoc($result);
     $corrAns = (int)$row['corr_ans'];
  
-    $sql = "SELECT * FROM questions WHERE ques_id = '$quesId'";
+    $sql = "SELECT * FROM questions WHERE ques_id = '$quesId' AND quiz_id='$quizId'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     $answer = $row['answer'];
