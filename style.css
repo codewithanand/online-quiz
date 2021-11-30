@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+body{
+    font-family: sans-serif;
+    background: gray;
+}
+
+/* ==================== CUSTOM TEXTS ================ */
+h1{
+    color: #e40057;
+    font-weight: bold;
+    font-size: 80px;
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: 0 5px 10px #000;
+}
+
+.text-primary{
+    color: #fff;
+}
+.text-secondary{
+    color: #000;
+}
+.text-pink{
+    color: #a70040;
+}
+.text-purple{
+    color: #71005c;
+}
+.text-blue{
+    color: #00399b;
+}
+
+/* ================== CUSTOM BUTTONS AND LINKS ================ */
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 8px 24px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 0 3px #fff,
+                0 5px 10px #000;
+    margin: 10px;
+    cursor: pointer;
+}
+.btn:link,
+.btn:visited,
+.btn:active{
+    color: #fff;
+}
+.btn-lg{
+    width: 400px;
+    text-align: center;
+}
+.btn-pink{
+    background: #e40057;
+}
+.btn-purple{
+    background: #9c007f;
+}
+.btn-blue{
+    background: #005bd3;
+}
+.btn-pink:hover{
+    background: #a70040;
+}
+.btn-purple:hover{
+    background: #71005c;
+}
+.btn-blue:hover{
+    background: #00399b;
+}
+.pink-disabled{
+    box-shadow: 0 0 0 3px #a70040,
+                0 5px 10px #000;
+}
+.purple-disabled{
+    box-shadow: 0 0 0 3px #71005c,
+                0 5px 10px #000;
+}
+.blue-disabled{
+    box-shadow: 0 0 0 3px #00399b,
+                0 5px 10px #000;
+}
+
+/* ================ FORM ELEMENTS =============== */
+form{
+    padding: 20px;
+}
+
+input{
+    border: 3px solid #e40057;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 5px;
+}
+label{
+    font-size: 18px;
+    font-weight: 100;
+}
+
+/* ================= CUSTOM RADIO BUTTONS ============== */
+.inp-radio{
+    display: inline-block;
+    height: 30px;
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #fff;
+}
+.inp-radio input{
+    position: absolute;
+    opacity: 0;
+    width: 200px;
+    height: 38px;
+    top: -9px;
+    left: -5px;
+    cursor: pointer;
+}
+.checkmark{
+    position: absolute;
+    top: -7px;
+    left: 0;
+    height: 38px;
+    width: 200px;
+    background: #e40057;
+    box-shadow: 0 0 0 3px #a70040,
+                0 5px 10px #000;
+    border-radius: 5px;
+    z-index: -3;
+}
+.inp-radio:hover input ~ .checkmark{
+    background: #a70040;
+}
+.checkmark::after{
+    content: "";
+    position: absolute;
+    display: none;
+}
+.inp-radio input:checked ~ .checkmark::after{
+    display: block;
+}
+.inp-radio .checkmark::after{
+    top: 0;
+    left: 0;
+    height: 38px;
+    width: 200px;
+    background: #005bd3;
+    box-shadow: 0 0 0 3px #fff;
+    border-radius: 5px;
+    z-index: -3;
+}
+
+/* ================ CUSTOM SCROLLBAR =============== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #005bd3; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00399b; 
+}

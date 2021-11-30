@@ -49,7 +49,7 @@
             <h2>RECENT QUIZES</h2>
             <div>
                 <?php
-                    $sql = "SELECT * FROM user_recent_quizes WHERE user_id='$userId'";
+                    $sql = "SELECT * FROM user_recent_quizes WHERE user_id='$userId' ORDER BY quiz_time DESC";
                     $result = mysqli_query($conn, $sql);
 
                     while($row = mysqli_fetch_assoc($result)){
