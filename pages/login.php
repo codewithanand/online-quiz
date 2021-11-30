@@ -41,21 +41,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In | Online Quiz</title>
+    <link rel="icon" href="../img/quiz-ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <form action="./login.php" method="post">
-        <div>
-            <label for="email">Email Address: </label>
-            <input type="text" name="email" id="email" required>
+    <main>
+        <div class="navbar">
+            <div class="nav-logo"><h3>Online Quiz</h3></div>
+            <div class="nav-btns"></div>
         </div>
-        <div>
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password" required>
-        </div>
-        <div>
-            <a href="./signup.php" class="btn">NEW USER</a>
-            <button type="submit">LOGIN</button>
-        </div>
-    </form>
+        <section>
+            <form class="container md-col cont-sm" action="./login.php" method="post">
+                <h2>Log In</h2>
+                <div class="container md-row">
+                    <label class="text-primary" for="email">Email Address</label>
+                    <input type="text" name="email" id="email" required>
+                </div>
+                <div class="container md-row">
+                    <label class="text-primary" for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="container md-row">
+                    <a href="./signup.php" class="btn btn-purple">NEW USER</a>
+                    <button type="submit" class="btn btn-pink">LOGIN</button>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>

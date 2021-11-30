@@ -26,43 +26,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User | Online Quiz</title>
+    <link rel="icon" href="../img/quiz-ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div>
-        <h1><?php echo $name ?></h1>
-        <h3>Name: <?php echo $name ?> </h3>
-        <h3>Email: <?php echo $email ?></h3>
-    </div>
-    <div>
-        <div>
-            <h1>DASHBOARD</h1>
-            <div>
-                <span><?php echo $rank ?></span>
-                <span>RANK</span>
-                <span><?php echo $totScore ?></span>
-            </div>
-            <div>
-    
+    <main>
+        <div class="navbar">
+            <div class="nav-logo"><h3>Online Quiz</h3></div>
+            <div class="nav-btns">
+                <button class="btn btn-pink pink-disabled" disabled><?php echo $name ?></button>
+                <a href="../partials/logout.php" class="btn btn-pink">LOGOUT</a>
             </div>
         </div>
-        <div>
-            <h2>RECENT QUIZES</h2>
-            <div>
-                <?php
-                    $sql = "SELECT * FROM user_recent_quizes WHERE user_id='$userId' ORDER BY quiz_time DESC";
-                    $result = mysqli_query($conn, $sql);
-
-                    while($row = mysqli_fetch_assoc($result)){
-                        echo '<div>
-                                <span>'.$row['quiz_id'].'</span>
-                                <span>'.$row['quiz_score'].'/'.$row['total_ques'].'</span>
-                            </div>
-                        ';
-                    }
-                ?>
+        <div class="container md-row">
+            <div class="container md-col cont-special">
+                <h1><?php echo $name ?></h1>
+                <h3>Name: <?php echo $name ?> </h3>
+                <h3>Email: <?php echo $email ?></h3>
+            </div>
+            <div class="container md-col cont-special">
+                <div>
+                    <h1>DASHBOARD</h1>
+                    <div>
+                        <span><?php echo $rank ?></span>
+                        <span>RANK</span>
+                        <span><?php echo $totScore ?></span>
+                    </div>
+                    <div>
+            
+                    </div>
+                </div>
+                <div>
+                    <h2>RECENT QUIZES</h2>
+                    <div>
+                        <?php
+                            $sql = "SELECT * FROM user_recent_quizes WHERE user_id='$userId' ORDER BY quiz_time DESC";
+                            $result = mysqli_query($conn, $sql);
+        
+                            while($row = mysqli_fetch_assoc($result)){
+                                echo '<div>
+                                        <span>'.$row['quiz_id'].'</span>
+                                        <span>'.$row['quiz_score'].'/'.$row['total_ques'].'</span>
+                                    </div>
+                                ';
+                            }
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <a href="./quizes.php" class="btn">Take a Quiz</a>
+        <a href="./quizes.php" class="btn btn-pink btn-float">Take a Quiz</a>
+    </main>
 </body>
 </html>

@@ -1,19 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     font-family: sans-serif;
-    background: gray;
+    background: url('./img/Slide2.PNG');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* ==================== CUSTOM TEXTS ================ */
 h1{
+    text-align: center;
     color: #e40057;
     font-weight: bold;
     font-size: 80px;
     -webkit-text-stroke: 1px #fff;
     text-shadow: 0 5px 10px #000;
+    user-select: none;
 }
-
+h2{
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    font-size: 50px;
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: 0 5px 10px #000;
+    margin-bottom: 40px; 
+    user-select: none;
+}
+h3{
+    text-align: center;
+    color: #e40057;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 0 5px 10px #000;
+    user-select: none;
+}
 .text-primary{
     color: #fff;
 }
@@ -34,6 +62,7 @@ h1{
 .btn{
     display: inline-block;
     text-decoration: none;
+    text-align: center;
     border-radius: 5px;
     padding: 8px 24px;
     font-size: 18px;
@@ -43,6 +72,7 @@ h1{
     box-shadow: 0 0 0 3px #fff,
                 0 5px 10px #000;
     margin: 10px;
+    width: 200px;
     cursor: pointer;
 }
 .btn:link,
@@ -53,6 +83,12 @@ h1{
 .btn-lg{
     width: 400px;
     text-align: center;
+}
+.btn-float{
+    position: absolute;
+    bottom: 100px;
+    left: 40%;
+    z-index: 1000;
 }
 .btn-pink{
     background: #e40057;
@@ -73,16 +109,13 @@ h1{
     background: #00399b;
 }
 .pink-disabled{
-    box-shadow: 0 0 0 3px #a70040,
-                0 5px 10px #000;
+    box-shadow: 0 0 0 3px #a70040;
 }
 .purple-disabled{
-    box-shadow: 0 0 0 3px #71005c,
-                0 5px 10px #000;
+    box-shadow: 0 0 0 3px #71005c;
 }
 .blue-disabled{
-    box-shadow: 0 0 0 3px #00399b,
-                0 5px 10px #000;
+    box-shadow: 0 0 0 3px #00399b;
 }
 
 /* ================ FORM ELEMENTS =============== */
@@ -172,4 +205,52 @@ label{
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #00399b; 
+}
+
+/* ============ CONTAINERS ============== */
+main{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+section{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    padding: 10px;
+}
+.md-row{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.md-col{
+    flex-direction: column;
+    justify-content: center;
+}
+.cont-sm{
+    width: 500px;
+    margin: auto;    
+}
+.cont-special{
+    background: #fff;
+    border: 3px solid #e40057;
+    min-width: 500px;
+    min-height: 600px;
+}
+
+/* ================ NAVBAR ============== */
+.navbar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }

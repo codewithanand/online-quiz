@@ -4,6 +4,11 @@
     session_start();
     $userId = $_SESSION['userId'];
     $quizId = $_SESSION['quizId'];
+
+    $sql = "SELECT * FROM user WHERE user_id='$userId'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $name = $row['user_fname'].' '.$row['user_lname'];
     
     //Fetch num of questions attempted by the user
     $sql = "SELECT * FROM user_current_ques WHERE user_id='$userId'";
@@ -48,17 +53,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Quiz</title>
+    <link rel="icon" href="../img/quiz-ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <main>
+        <div class="navbar">
+            <div class="nav-logo"><h3>Online Quiz</h3></div>
+            <div class="nav-btns">
+                <button class="btn btn-pink pink-disabled" disabled><?php echo $name ?></button>
+                <a href="../partials/logout.php" class="btn btn-pink">LOGOUT</a>
+            </div>
+        </div>
+    </main>
     <?php
-        echo '<form action="../partials/checkAnswers.php?quesId='.$quesId.'&i='.$i.'" method="post">';
+        echo '<form class="container md-col" action="../partials/checkAnswers.php?quesId='.$quesId.'&i='.$i.'" method="post">';
 
         echo '<p>'.$question.'</p>';
-        echo '<div>
-                <div><input name="ques_opt" type="radio" value="'.$opt_a.'"><label for="ques_opt">'.$opt_a.'</label></div>
-                <div><input name="ques_opt" type="radio" value="'.$opt_b.'"><label for="ques_opt">'.$opt_b.'</label></div>
-                <div><input name="ques_opt" type="radio" value="'.$opt_c.'"><label for="ques_opt">'.$opt_c.'</label></div>
-                <div><input name="ques_opt" type="radio" value="'.$opt_d.'"><label for="ques_opt">'.$opt_d.'</label></div>
+        echo '<div class="container md-row">
+                <div>
+                    <label for="ques_opt" class="inp-radio">'.$opt_a.'
+                        <input name="ques_opt" type="radio" value="'.$opt_a.'">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div>
+                    <label for="ques_opt" class="inp-radio">'.$opt_b.'
+                        <input name="ques_opt" type="radio" value="'.$opt_b.'">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div>
+                    <label for="ques_opt" class="inp-radio">'.$opt_c.'
+                        <input name="ques_opt" type="radio" value="'.$opt_c.'">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div>
+                    <label for="ques_opt" class="inp-radio">'.$opt_d.'
+                        <input name="ques_opt" type="radio" value="'.$opt_d.'">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
             </div>';
         echo '<div>
                 <button type="submit">NEXT</button>
