@@ -78,20 +78,28 @@
                     <p class="heading2 text-pink">RECENT QUIZES</p>
                     <div>
                         <?php
-                            $sql = "SELECT * FROM user_recent_quizes WHERE user_id='$userId' ORDER BY quiz_time DESC LIMIT 5";
+                            $sql = "SELECT * FROM user_recent_quizes WHERE user_id='$userId' ORDER BY quiz_time DESC LIMIT 4";
                             $result = mysqli_query($conn, $sql);
         
                             while($row = mysqli_fetch_assoc($result)){
+                                $quizId = $row['quiz_id'];
+                                $score = $row['quiz_score'];
+                                $totQues = $row['total_ques'];
+
+                                $qry = "SELECT * FROM quiz_details WHERE quiz_id = '$quizId'";
+                                $res = mysqli_query($conn, $qry);
+                                $rw = mysqli_fetch_assoc($res);
+                                $quizName = $rw['quiz_subject'];
                                 echo '
                                     <div class="recent-box">
                                         <div class="recent-sub">
-                                            <span>'.$row['quiz_id'].'</span>
+                                            <span>'.$quizName.'</span>
                                         </div>
-                                        <div class="progress-bar">
-                                            <span class="progress"></span>
+                                        <div id="prgCont" class="progress-bar">
+                                            <span id="prgBar" class="progress"></span>
                                         </div>
                                         <div>
-                                            <span>'.$row['quiz_score'].'/'.$row['total_ques'].'</span>
+                                            <span id="prgPoint">'.$score.'</span>/<span id="prgTotPoint">'.$totQues.'</span>
                                         </div>
                                     </div>
                                 ';
@@ -102,5 +110,23 @@
             </div>
         <a href="./quizes.php" class="btn btn-pink btn-float">Take a Quiz</a>
     </main>
+
+    <script>
+        // let score = document.getElementById('prgPoint').innerHTML;
+        // let totQues = document.getElementById('prgTotPoint').innerHTML;
+        // let prgBar = document.getElementById('prgBar');
+        // perGain = score / totQues * 100;
+        // prgBar.style.width = perGain + '%';
+        
+        let prgPoint = document.querySelectorAll('#prgPoint');
+        let prgTotPoint = document.querySelectorAll('#prgTotPoint');
+        let prgBar = document.querySelectorAll('#prgBar');
+
+        for(var i=0; i<prgBar.length; i++){
+            perGain = prgPoint[i].innerHTML / prgTotPoint[i].innerHTML * 100;
+            prgBar[i].style.width = perGain + '%';
+        }
+
+    </script>
 </body>
 </html>

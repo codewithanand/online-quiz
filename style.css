@@ -103,7 +103,7 @@ h3{
 }
 .btn-float{
     position: absolute;
-    bottom: 60px;
+    bottom: 40px;
     left: 40%;
     z-index: 1000;
 }
