@@ -39,7 +39,7 @@
             </div>
         </div>
         <section>
-            <form action="./quizes.php" method="post">
+            <form class="container md-col" action="./quizes.php" method="post">
                 <?php
                     $sql = "SELECT * FROM quiz_details";
                     $result = mysqli_query($conn, $sql);
@@ -55,7 +55,7 @@
                         ';
                     }
                 ?>
-                <div>
+                <div class="row-cen">
                     <button type="submit" class="btn btn-purple">START</button>
                 </div>
             </form>

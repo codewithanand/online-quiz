@@ -15,6 +15,102 @@ body{
     background-attachment: fixed;
 }
 
+/* ================ CUSTOM SCROLLBAR =============== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #005bd3; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00399b; 
+}
+
+/* ============ CONTAINERS ============== */
+main{
+    width: 100vw;
+    height: 99vh;
+    overflow-x: hidden;
+    position: relative;
+}
+section{
+    width: 100%;
+    height: 90%;
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 10px;
+    position: relative;
+}
+.md-row{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.md-col{
+    flex-direction: column;
+    justify-content: center;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.col{
+    display: inline-block;
+}
+.row-cen{
+    text-align: center;
+}
+.row-end{
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+.cont-cen{
+    justify-content: center;
+    align-items: center;
+}
+.cont-sm{
+    width: 500px;
+    margin: auto;    
+}
+.cont-special{
+    flex: 1;
+    min-height: 500px;
+    padding: 40px;
+    background: #fff;
+    border: 3px solid #e40057;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: -10;
+}
+.cont-bor-wh{
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 30px 30px 30px 100px;
+}
+
+/* ================ NAVBAR ============== */
+.navbar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
 /* ==================== CUSTOM TEXTS ================ */
 h1{
     text-align: center;
@@ -58,6 +154,25 @@ h3{
 .sub-heading{
     font-size: 20px;
     text-align: center;
+}
+.question{
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+}
+.questionText{
+    position: absolute;
+    top: -50px;
+    left: -20px;
+    font-size: 150px;
+}
+.quesCounter{
+    color: #e40057;
+    font-weight: bold;
+    font-size: 40px;
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: 0 5px 10px #000;
+    user-select: none;
 }
 .text-primary{
     color: #fff;
@@ -103,7 +218,7 @@ h3{
 }
 .btn-float{
     position: absolute;
-    bottom: 40px;
+    bottom: -50px;
     left: 40%;
     z-index: 1000;
 }
@@ -154,9 +269,10 @@ label{
 /* ================= CUSTOM RADIO BUTTONS ============== */
 .inp-radio{
     display: inline-block;
-    height: 30px;
-    width: 200px;
+    height: 60px;
+    width: 300px;
     margin: 10px;
+    padding-top: 10px;
     text-align: center;
     position: relative;
     cursor: pointer;
@@ -170,8 +286,8 @@ label{
 .inp-radio input{
     position: absolute;
     opacity: 0;
-    width: 200px;
-    height: 38px;
+    width: 300px;
+    height: 68px;
     top: -9px;
     left: -5px;
     cursor: pointer;
@@ -180,8 +296,8 @@ label{
     position: absolute;
     top: -7px;
     left: 0;
-    height: 38px;
-    width: 200px;
+    height: 68px;
+    width: 300px;
     background: #e40057;
     box-shadow: 0 0 0 3px #a70040,
                 0 5px 10px #000;
@@ -202,96 +318,15 @@ label{
 .inp-radio .checkmark::after{
     top: 0;
     left: 0;
-    height: 38px;
-    width: 200px;
+    height: 68px;
+    width: 300px;
     background: #005bd3;
     box-shadow: 0 0 0 3px #fff;
     border-radius: 5px;
     z-index: -3;
 }
 
-/* ================ CUSTOM SCROLLBAR =============== */
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-}
-::-webkit-scrollbar-thumb {
-    background: #005bd3; 
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #00399b; 
-}
 
-/* ============ CONTAINERS ============== */
-main{
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-}
-section{
-    width: 100%;
-    height: 90%;
-    margin: 40px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.container{
-    display: flex;
-    padding: 10px;
-    gap: 10px;
-}
-.md-row{
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-.md-col{
-    flex-direction: column;
-    justify-content: center;
-}
-.row{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.col{
-    display: inline-block;
-}
-.row-cen{
-    text-align: center;
-}
-.cont-cen{
-    justify-content: center;
-    align-items: center;
-}
-.cont-sm{
-    width: 500px;
-    margin: auto;    
-}
-.cont-special{
-    flex: 1;
-    min-height: 500px;
-    padding: 40px;
-    background: #fff;
-    border: 3px solid #e40057;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-/* ================ NAVBAR ============== */
-.navbar{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-}
 
 /* =============== IMAGES =============== */
 
