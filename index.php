@@ -9,10 +9,14 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <section>
-        <form class="container md-col cont-sm" action="./pages/login.php">
-            <h1>Online Quiz</h1>
-            <button class="btn btn-pink" type="submit">CONTINUE</button>
-        </form>
-    </section</body>
+    <main>
+        <section>
+            <form class="container md-col cont-sm" action="./pages/login.php">
+                <img src="./img/quiz-ico.png" alt="" width="200px" height="200px">
+                <h1>Online Quiz</h1>
+                <button class="btn btn-pink" type="submit">CONTINUE</button>
+            </form>
+        </section>
+    </main>
+</body>
 </html>

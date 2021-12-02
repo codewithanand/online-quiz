@@ -30,43 +30,69 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <main>
+<main>
         <div class="navbar">
-            <div class="nav-logo"><h3>Online Quiz</h3></div>
+            <div class="nav-logo">
+                <h3>Online Quiz</h3>
+            </div>
             <div class="nav-btns">
-                <button class="btn btn-pink pink-disabled" disabled><?php echo $name ?></button>
+                <button class="btn btn-pink pink-disabled" disabled>
+                    <?php echo $name ?>
+                </button>
                 <a href="../partials/logout.php" class="btn btn-pink">LOGOUT</a>
             </div>
         </div>
         <div class="container md-row">
-            <div class="container md-col cont-special">
-                <h1><?php echo $name ?></h1>
-                <h3>Name: <?php echo $name ?> </h3>
-                <h3>Email: <?php echo $email ?></h3>
+            <div class="container md-col cont-cen cont-special">
+                <img src="../img/User-Profile.png" alt="" class="user-profile" width="200px" height="200px">
+                <p class="heading text-secondary">
+                    <?php echo $name ?>
+                </p>
+                <p class="sub-heading text-secondary">
+                    <?php echo $email ?>
+                </p>
+
+                
             </div>
             <div class="container md-col cont-special">
                 <div>
-                    <h1>DASHBOARD</h1>
-                    <div>
-                        <span><?php echo $rank ?></span>
-                        <span>RANK</span>
-                        <span><?php echo $totScore ?></span>
-                    </div>
-                    <div>
-            
+                    <p class="heading text-purple">DASHBOARD</p>
+                    <div class="global-scorebar">
+                        <div class="rank-box">
+                            <span class="circle">
+                                <?php echo $rank ?>
+                            </span>
+                            <span>RANK</span>
+                        </div>
+                        <div class="progress-bar">
+                            <span class="progress"></span>
+                        </div>
+                        <div>
+                            <span>
+                                <?php echo $totScore ?>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <h2>RECENT QUIZES</h2>
+                    <p class="heading2 text-pink">RECENT QUIZES</p>
                     <div>
                         <?php
-                            $sql = "SELECT * FROM user_recent_quizes WHERE user_id='$userId' ORDER BY quiz_time DESC";
+                            $sql = "SELECT * FROM user_recent_quizes WHERE user_id='$userId' ORDER BY quiz_time DESC LIMIT 5";
                             $result = mysqli_query($conn, $sql);
         
                             while($row = mysqli_fetch_assoc($result)){
-                                echo '<div>
-                                        <span>'.$row['quiz_id'].'</span>
-                                        <span>'.$row['quiz_score'].'/'.$row['total_ques'].'</span>
+                                echo '
+                                    <div class="recent-box">
+                                        <div class="recent-sub">
+                                            <span>'.$row['quiz_id'].'</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <span class="progress"></span>
+                                        </div>
+                                        <div>
+                                            <span>'.$row['quiz_score'].'/'.$row['total_ques'].'</span>
+                                        </div>
                                     </div>
                                 ';
                             }
@@ -74,7 +100,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         <a href="./quizes.php" class="btn btn-pink btn-float">Take a Quiz</a>
     </main>
 </body>
