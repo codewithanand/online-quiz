@@ -12,9 +12,15 @@
     <main>
         <section>
             <form class="container md-col cont-sm" action="./pages/login.php">
-                <img src="./img/quiz-ico.png" alt="" width="200px" height="200px">
-                <h1>Online Quiz</h1>
-                <button class="btn btn-pink" type="submit">CONTINUE</button>
+                <div class="row-cen">
+                    <img src="./img/quiz-ico.png" alt="" width="200px" height="200px">
+                </div>
+                <div class="row-cen">
+                    <h1>Online Quiz</h1>
+                </div>
+                <div class="row-cen">
+                    <button class="btn btn-pink" type="submit">CONTINUE</button>
+                </div>
             </form>
         </section>
     </main>
