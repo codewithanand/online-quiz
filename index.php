@@ -8,10 +8,8 @@
     <link rel="icon" href="./img/quiz-ico.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <main>
-        <section>
-            <form class="container md-col cont-sm" action="./pages/login.php">
+<body class="container cont-cen">
+            <form class="container md-col" action="./pages/login.php">
                 <div class="row-cen">
                     <img src="./img/quiz-ico.png" alt="" width="200px" height="200px">
                 </div>
@@ -22,7 +20,6 @@
                     <button class="btn btn-pink" type="submit">CONTINUE</button>
                 </div>
             </form>
-        </section>
-    </main>
+        
 </body>
 </html>

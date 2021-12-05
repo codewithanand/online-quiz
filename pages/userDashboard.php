@@ -51,8 +51,6 @@
                 <p class="sub-heading text-secondary">
                     <?php echo $email ?>
                 </p>
-
-                
             </div>
             <div class="container md-col cont-special">
                 <div>

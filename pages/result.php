@@ -5,6 +5,11 @@
     $userId = $_SESSION['userId'];
     $quizId = $_SESSION['quizId'];
 
+    $sql = "SELECT * FROM user WHERE user_id='$userId'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $name = $row['user_fname'].' '.$row['user_lname'];
+
     $totalQues = $_GET['tot'];
     $corrAns = $_GET['corr'];
 
@@ -32,13 +37,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result | Online Quiz</title>
+    <link rel="icon" href="../img/quiz-ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <form action="../partials/resetQuestionSession.php" method="post">
-        <h1><?php echo $corrAns.'/'.$totalQues ?></h1>
-        <div>
-            <button type="submit">OK</button>
+    <main>
+        <div class="navbar">
+            <div class="nav-logo"><h3>Online Quiz</h3></div>
+            <div class="nav-btns">
+                <button class="btn btn-pink pink-disabled" disabled><?php echo $name ?></button>
+                <a href="../partials/logout.php" class="btn btn-pink">LOGOUT</a>
+            </div>
         </div>
-    </form>
+        <section>
+            <form action="../partials/resetQuestionSession.php" method="post">
+                <div class="row-cen">
+                    <img src="../img/quiz-ico.png" alt="" width="200px" height="200px">
+                </div>
+                <h1><?php echo $corrAns.'/'.$totalQues ?></h1>
+                <div>
+                    <button class="btn btn-blue" type="submit">OK</button>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>

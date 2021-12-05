@@ -15,7 +15,7 @@
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     $i = (int)$row['ques_num'];
-    $quesNum = $i;
+    $quesNum = $i+1;
     $corrAns = $row['corr_ans'];
 
     //Collect current question from the database

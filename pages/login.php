@@ -50,7 +50,7 @@
             <div class="nav-logo"><h3>Online Quiz</h3></div>
             <div class="nav-btns"></div>
         </div>
-        <section>
+        <section class="container cont-cen">
             <form class="container md-col cont-sm" action="./login.php" method="post">
                 <h2>Log In</h2>
                 <div class="container md-row">
