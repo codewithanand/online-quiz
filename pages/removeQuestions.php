@@ -51,7 +51,7 @@
                     ?>
                 </div>
                 <div class="container md-col cont-flex-1">
-                <div class="container col">
+                    <div class="container col">
                     <?php
                         
                         $sql = "SELECT * FROM questions WHERE quiz_id = '$quizId'";
