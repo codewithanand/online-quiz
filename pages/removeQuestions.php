@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User | Online Quiz</title>
+    <title>Remove Question | Online Quiz</title>
     <link rel="icon" href="../img/quiz-ico.png" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -35,8 +35,8 @@
             </div>
         </div>
         <section>
-            <div class="container md-row">
-                <div class="container md-col cont-sp-col">
+            <div class="container md-row-start">
+                <div class="container col">
                     <?php
                         $sql = "SELECT * FROM quiz_details";
                         $result = mysqli_query($conn, $sql);
@@ -50,28 +50,32 @@
                         }
                     ?>
                 </div>
-                <div class="container md-col cont-flex-1 cont-sp-col">
+                <div class="container md-col cont-flex-1">
+                <div class="container col">
                     <?php
+                        
                         $sql = "SELECT * FROM questions WHERE quiz_id = '$quizId'";
                         $result = mysqli_query($conn, $sql);
                         while($row = mysqli_fetch_assoc($result)){
-                            echo '
-                                <form method="post" action"../partials/removeQuestion.php?quesId='.$row['ques_id'].'" class="container md-col">
+                            $quesId = $row['ques_id'];
+                            $ques = $row['question'];
+                            echo '<form class="container md-col  cont-sp-col" method="post" action="../partials/removeQuestions.php?quesId='.$quesId.'">
                                     <div class="row">
                                         <label class="text-secondary" for="quesId">Question Id: </label>
-                                        <input type="text" name="quesId" value="'.$row['ques_id'].'" disabled>
+                                        <input type="text" name="quesId" value="'.$quesId.'" disabled>
                                     </div>
                                     <div class="row">
                                         <label class="text-secondary" for="ques">Question: </label>
-                                        <textarea name="ques" id="ques" cols="80" rows="2" disabled>'.$row['question'].'</textarea>
+                                        <textarea name="ques" id="ques" cols="80" rows="2" disabled>'.$ques.'</textarea>
                                     </div>
                                     <div class="row-cen">
-                                        <button class="btn btn-pink" type="submit">DELETE</button>
+                                        <button class="btn btn-purple" type="submit">DELETE</button>
                                     </div>
                                 </form>
-                            ';
-                        }
-                    ?>
+                                ';
+                            }
+                            ?>
+                            </div>
                 </div>
         </section>
     </main>

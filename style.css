@@ -69,6 +69,11 @@ section{
     align-items: center;
     justify-content: space-between;
 }
+.md-row-start{
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: space-between;
+}
 .md-col{
     flex-direction: column;
     justify-content: center;
@@ -80,7 +85,7 @@ section{
     align-items: center;
 }
 .col{
-    display: inline-block;
+    flex-direction: column;
 }
 .row-cen{
     text-align: center;
@@ -105,7 +110,7 @@ section{
     flex: 1;
 }
 .cont-sp-col{
-    height: 500px;
+    flex-wrap: wrap;
     padding: 40px;
     background: #fff;
     border: 3px solid #e40057;
@@ -127,6 +132,9 @@ section{
     margin: auto;
     margin-top: 30px;
     padding: 30px 30px 30px 100px;
+}
+.mt-100{
+    margin-top: 1600px;
 }
 
 

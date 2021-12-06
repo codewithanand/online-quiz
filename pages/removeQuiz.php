@@ -14,18 +14,26 @@
         $sql = "SELECT * FROM quiz_details WHERE quiz_subject='$quizName'";
         $result = mysqli_query($conn, $sql);
         $numOfRows = mysqli_num_rows($result);
-
         if($numOfRows == 1){
-            $sql = "SELECT * FROM quiz_details where quiz_subject='$quizName'";
-            $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
+            $quizId = $row['quiz_id'];
+    
+            // Delete quiz from quiz_details table
+            $sql = "DELETE FROM quiz_details WHERE quiz_id='$quizId'";
+            mysqli_query($conn, $sql);
 
-            $_SESSION['quizId'] = $row['quiz_id'];
+            //Delete questions from questions table
+            $sql = "DELETE FROM questions WHERE quiz_id='$quizId'";
+            mysqli_query($conn, $sql);
+
+            //Delete user data related to the quiz from user_recent_quizes table
+            $sql = "DELETE FROM user_recent_quizes WHERE quiz_id='$quizId'";
+            mysqli_query($conn, $sql);
             
-            header('location: ./removeQuestions.php');
+            header('location: ./removeQuiz.php');
         }
         else{
-            echo 'Error! Wrong quiz name or Quiz does not exists.';
+            echo 'Error! Quiz does not exists';
         }
     }
 ?>
