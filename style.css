@@ -32,15 +32,6 @@ body{
     background: #00399b; 
 }
 
-/* ================ NAVBAR ============== */
-.navbar{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-}
 
 /* ============ CONTAINERS ============== */
 main{
@@ -55,6 +46,16 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* ================ NAVBAR ============== */
+.navbar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
 .container{
     display: flex;
@@ -99,6 +100,17 @@ section{
 .cont-lg{
     width: 968px;
     margin: auto;
+}
+.cont-flex-1{
+    flex: 1;
+}
+.cont-sp-col{
+    height: 500px;
+    padding: 40px;
+    background: #fff;
+    border: 3px solid #e40057;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .cont-special{
     flex: 1;

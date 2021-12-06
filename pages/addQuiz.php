@@ -71,7 +71,7 @@
                         <input type="text" name="searchQuizName" id="searchQuizName">
                     </div>
                     <div class="row-cen">
-                        <button type="submit" class="btn btn-pink">ADD QUESTIONS</button>
+                        <button type="submit" class="btn btn-pink">SEARCH</button>
                     </div>
                 </form>
             </div>
