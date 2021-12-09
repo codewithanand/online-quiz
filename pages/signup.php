@@ -65,7 +65,10 @@
                 </div>
                 <div class="container md-row">
                     <label class="text-primary" for="email">Email Address: </label>
-                    <input type="text" name="email" id="email" required>
+                    <input type="text" name="email" id="email" oninput="ValidateEmail()" required>
+                </div>
+                <div style="display:none" id="msgCont" class="container md-row">
+                    <span id="emailMsg"></span>
                 </div>
                 <div class="container md-row">
                     <label class="text-primary" for="password">Password: </label>
@@ -87,5 +90,20 @@
         </section>
         
     </main>
+
+    <script>
+        function ValidateEmail(){
+            var myEmail = document.getElementById('email');
+            var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+            if(myEmail.value.match(mailformat)){
+                document.getElementById('msgCont').style.display = 'none';
+                document.getElementById('emailMsg').innerHTML = '';
+            }
+            else{
+                document.getElementById('msgCont').style.display = 'block';
+                document.getElementById('emailMsg').innerHTML = 'Invalid Email Address';
+            }
+        }
+    </script>
 </body>
 </html>

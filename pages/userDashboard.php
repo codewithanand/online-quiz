@@ -17,6 +17,7 @@
     $row = mysqli_fetch_assoc($result);
 
     $rank = $row['user_rank'];
+    
 ?>
 
 <!DOCTYPE html>
@@ -43,8 +44,19 @@
             </div>
         </div>
         <div class="container md-row">
-            <div class="container md-col cont-cen cont-special">
-                <img src="../img/User-Profile.png" alt="" class="user-profile" width="200px" height="200px">
+            <div class="container md-col cont-cen cont-sp-col">
+                <?php
+                    $sql = "SELECT * FROM profile_picture WHERE user_id='$userId'";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+
+                    $img_file_path = '../img/profile/'.$row['img_name'];
+                ?>
+                <img src="<?php echo $img_file_path; ?>" alt="" class="user-profile" width="200px" height="200px">
+                <form action="../partials/uploadPicture.php" method="post" enctype="multipart/form-data">
+                    <input type="file" class="btn btn-purple" name="uploadfile" id="uploadfile">
+                    <button type="submit" class="btn btn-blue" name="upload">Upload</button>
+                </form>
                 <p class="heading text-secondary">
                     <?php echo $name ?>
                 </p>
@@ -96,7 +108,7 @@
                                         <div id="prgCont" class="progress-bar">
                                             <span id="prgBar" class="progress"></span>
                                         </div>
-                                        <div>
+                                        <div class="recent-score">
                                             <span id="prgPoint">'.$score.'</span>/<span id="prgTotPoint">'.$totQues.'</span>
                                         </div>
                                     </div>
@@ -110,11 +122,6 @@
     </main>
 
     <script>
-        // let score = document.getElementById('prgPoint').innerHTML;
-        // let totQues = document.getElementById('prgTotPoint').innerHTML;
-        // let prgBar = document.getElementById('prgBar');
-        // perGain = score / totQues * 100;
-        // prgBar.style.width = perGain + '%';
         
         let prgPoint = document.querySelectorAll('#prgPoint');
         let prgTotPoint = document.querySelectorAll('#prgTotPoint');

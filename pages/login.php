@@ -18,18 +18,18 @@
                 $_SESSION['userEmail'] = $row['email'];
 
                 if($row['is_admin'] == 'no'){
-                    header('location: ./userDashboard.php');
+                    header('location: ../partials/resetQuestionSession.php');
                 }
                 else{
                     header('location: ./admin.php');
                 }
             }
             else{
-                echo 'Error! Incorrect password.';
+                echo '<div class="alert alert-danger" id="alert-box" role="alert"> Error! Incorrect password. </div>';
             }
         }
         else{
-            echo 'Error! Incorrect email address';
+            echo '<div class="alert alert-danger" id="alert-box" role="alert"> Error! User not registered. </div>';
         }
     }
  
@@ -43,6 +43,7 @@
     <title>Log In | Online Quiz</title>
     <link rel="icon" href="../img/quiz-ico.png" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
+    <script src="../main.js"></script>
 </head>
 <body>
     <main>
@@ -63,7 +64,7 @@
                 </div>
                 <div class="container md-row">
                     <a href="./signup.php" class="btn btn-purple">NEW USER</a>
-                    <button type="submit" class="btn btn-pink">LOGIN</button>
+                    <button type="submit" class="btn btn-pink" onclick="showAlertBox()">LOGIN</button>
                 </div>
             </form>
         </section>

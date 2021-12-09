@@ -58,7 +58,7 @@
         </div>
         <section>
             <div class="container md-row-start">
-                <div class="container md-col">
+                <div class="container col">
                     <form method="post" action="./users.php">
                         <?php
                             $sql = "SELECT * FROM user WHERE is_admin='no'";
@@ -81,13 +81,13 @@
                     </form>
                 </div>
                 <div class="container md-col cont-special cont-sm cont-flex-1">
-                    <div class="container md-row">
+                    <div class="container row">
                         <div>
                             <img src="../img/User-Profile.png" alt="" class="user-profile-sm" width="200px" height="200px">
                         </div>
                         <div>
-                            <p class="heading text-secondary"><?php echo $userName ?></p>
-                            <p class="sub-heading text-secondary"><?php echo $userEmail ?></p>
+                            <p class="heading2 text-secondary"><?php echo $userName ?></p>
+                            <p class="text-secondary"><?php echo $userEmail ?></p>
                         </div>
                     </div>
                     <div>

@@ -372,8 +372,8 @@ label{
                 0 0 10px 10px #000;
 }
 .user-profile-sm{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     box-shadow: 0 0 0 1px #e40057,
                 0 0 0 6px #fff,
@@ -423,6 +423,11 @@ label{
 }
 .recent-box .recent-sub{
     flex: 1;
+    text-align: left;
+}
+.recent-box .recent-score{
+    flex: 1;
+    text-align: right;
 }
 
 /* PROGRESS BAR */
@@ -444,3 +449,25 @@ label{
     background: #9c007f;
     border-radius: 6px;
 }
+
+/* ============== ALERT BOXES ============== */
+.alert{
+    display: block;
+    color: #111;
+    padding: 10px;
+    font-size: 20px;
+}
+.alert-danger{
+    background-color: rgba(255, 0, 0, 0.3);
+}
+.alert-success{
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+/* ============= UPLOAD PICTURE BOX =========== */
+input[type="file"]{
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========== EMAIL VALIDATION ============== */
