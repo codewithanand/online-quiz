@@ -69,16 +69,16 @@
                     <p class="heading text-purple">DASHBOARD</p>
                     <div class="global-scorebar">
                         <div class="rank-box">
-                            <span class="circle">
-                                <?php echo $rank ?>
+                            <span class="circle" id="user-level">
+                                <!-- <?php echo $rank ?> -->
                             </span>
-                            <span>RANK</span>
+                            <span>LEVEL</span>
                         </div>
-                        <div class="progress-bar">
-                            <span class="progress"></span>
+                        <div id="gPrgCont" class="progress-bar">
+                            <span id="gPrgBar" class="progress"></span>
                         </div>
                         <div>
-                            <span>
+                            <span id="user-tot-score">
                                 <?php echo $totScore ?>
                             </span>
                         </div>
@@ -122,6 +122,8 @@
     </main>
 
     <script>
+
+        // =============== RECENT QUIZES PROGRESS BAR ==============
         
         let prgPoint = document.querySelectorAll('#prgPoint');
         let prgTotPoint = document.querySelectorAll('#prgTotPoint');
@@ -132,6 +134,19 @@
             prgBar[i].style.width = perGain + '%';
         }
 
+        // =============== USER GLOBAL PROGRESS BAR ==================
+
+        let userTotalScore = document.getElementById('user-tot-score');
+        let userPrgBar = document.getElementById('gPrgBar');
+        let userLevelTxt = document.getElementById('user-level');
+
+        userLevel = Math.floor(userTotalScore.innerHTML/100);
+        userCurrentPoints = Math.floor(userTotalScore.innerHTML%100);
+
+        userPerGain = userCurrentPoints / 100 * 100;
+        userPrgBar.style.width = userPerGain + '%';
+
+        userLevelTxt.innerHTML = userLevel;
     </script>
 </body>
 </html>
