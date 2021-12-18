@@ -45,6 +45,7 @@
     <title>Sign up | Online Quiz</title>
     <link rel="icon" href="../img/quiz-ico.png" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
+    <script src="../js/emailValid.js"></script>
 </head>
 <body>
     <main>
@@ -68,11 +69,17 @@
                     <input type="text" name="email" id="email" oninput="ValidateEmail()" required>
                 </div>
                 <div style="display:none" id="msgCont" class="container md-row">
-                    <span id="emailMsg"></span>
+                    <span class="emailMsg" id="emailMsg"></span>
                 </div>
                 <div class="container md-row">
                     <label class="text-primary" for="password">Password: </label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="password" id="password" oninput="ValidatePassword()" required>
+                </div>
+                <div class="container md-row">
+                    <span class="passMsg" id="pwdLen"></span>
+                    <span class="passMsg" id="pwdAlpha"></span>
+                    <span class="passMsg" id="pwdSym"></span>
+                    <span class="passMsg" id="pwdUpp"></span>
                 </div>
                 <div class="container md-row">
                     <label class="text-primary" for="cpassword">Confirm Password: </label>
@@ -90,20 +97,5 @@
         </section>
         
     </main>
-
-    <script>
-        function ValidateEmail(){
-            var myEmail = document.getElementById('email');
-            var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
-            if(myEmail.value.match(mailformat)){
-                document.getElementById('msgCont').style.display = 'none';
-                document.getElementById('emailMsg').innerHTML = '';
-            }
-            else{
-                document.getElementById('msgCont').style.display = 'block';
-                document.getElementById('emailMsg').innerHTML = 'Invalid Email Address';
-            }
-        }
-    </script>
 </body>
 </html>

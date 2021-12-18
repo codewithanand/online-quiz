@@ -43,7 +43,7 @@
     <title>Log In | Online Quiz</title>
     <link rel="icon" href="../img/quiz-ico.png" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
-    <script src="../main.js"></script>
+    <script src="../js/emailValid.js"></script>
 </head>
 <body>
     <main>
@@ -56,7 +56,10 @@
                 <h2>Log In</h2>
                 <div class="container md-row">
                     <label class="text-primary" for="email">Email Address</label>
-                    <input type="text" name="email" id="email" required>
+                    <input type="text" name="email" id="email" oninput="ValidateEmail()" required>
+                </div>
+                <div style="display:none" id="msgCont" class="container md-row">
+                    <span class="emailMsg" id="emailMsg"></span>
                 </div>
                 <div class="container md-row">
                     <label class="text-primary" for="password">Password</label>
