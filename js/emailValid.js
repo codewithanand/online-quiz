@@ -7,6 +7,7 @@ function ValidateEmail(){
     }
     else{
         document.getElementById('msgCont').style.display = 'block';
+        document.getElementById('msgCont').style.color = '#a70040';
         document.getElementById('emailMsg').innerHTML = 'Invalid email address';
     }
 }

@@ -475,9 +475,20 @@ input[type="file"]{
 /* =========== EMAIL VALIDATION ============== */
 #msgCont{
     text-align: center;
-    background-color: rgba(255, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .emailMsg{
-    color: #fff;
+    color: #a70040;
+    font-size: smaller;
+}
+
+/* =========== PASSWORD VALIDATION ============== */
+#pwdCont,
+#conPwdCont{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.passMsg{
+    color: #a70040;
     font-size: smaller;
 }

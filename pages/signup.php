@@ -46,6 +46,7 @@
     <link rel="icon" href="../img/quiz-ico.png" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
     <script src="../js/emailValid.js"></script>
+    <script src="../js/passwordValid.js"></script>
 </head>
 <body>
     <main>
@@ -75,15 +76,18 @@
                     <label class="text-primary" for="password">Password: </label>
                     <input type="password" name="password" id="password" oninput="ValidatePassword()" required>
                 </div>
-                <div class="container md-row">
-                    <span class="passMsg" id="pwdLen"></span>
-                    <span class="passMsg" id="pwdAlpha"></span>
-                    <span class="passMsg" id="pwdSym"></span>
-                    <span class="passMsg" id="pwdUpp"></span>
+                <div style="display:none" id="pwdCont" class="container md-row">
+                    <span class="passMsg" id="pwdLen">Password must contain 8-20 characters</span>
+                    <span class="passMsg" id="pwdAlpha">Password must contain alphabets</span>
+                    <span class="passMsg" id="pwdNum">Password must contain atleast one number</span>
+                    <span class="passMsg" id="pwdUpp">Password mst contain atleast one uppercase letter</span>
                 </div>
                 <div class="container md-row">
                     <label class="text-primary" for="cpassword">Confirm Password: </label>
-                    <input type="password" name="cpassword" id="cpassword" required>
+                    <input type="password" name="cpassword" id="cpassword" oninput="MatchPasswords()" required>
+                </div>
+                <div style="display:none" id="conPwdCont" class="container md-row">
+                    <span class="passMsg" id="conPwdMatch">Passwords did not match</span>
                 </div>
                 <div class="container md-row">
                     <label class="text-primary" for="contact">Contact: </label>
