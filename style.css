@@ -374,8 +374,8 @@ label{
                 0 0 10px 10px #000;
 }
 .user-profile-sm{
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     box-shadow: 0 0 0 1px #e40057,
                 0 0 0 6px #fff,

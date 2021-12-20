@@ -30,6 +30,12 @@
 
         $userTotalScore = $row['total_score'];
         $userGlobalRank = $row['user_rank'];
+
+        $sql = "SELECT * FROM profile_picture WHERE user_id='$getUserId'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+
+        $imgSrc = $row['img_name'];
     }
 ?>
 <!DOCTYPE html>
@@ -83,7 +89,7 @@
                 <div class="container md-col cont-special cont-sm cont-flex-1">
                     <div class="container row">
                         <div>
-                            <img src="../img/User-Profile.png" alt="" class="user-profile-sm" width="200px" height="200px">
+                            <img src="../img/profile/<?php echo $imgSrc; ?>" alt="" class="user-profile-sm" width="200px" height="200px">
                         </div>
                         <div>
                             <p class="heading2 text-secondary"><?php echo $userName ?></p>
